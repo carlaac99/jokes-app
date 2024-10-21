@@ -3,6 +3,7 @@ import { JokesService } from '../jokes.service';
 import { Joke } from '../joke';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { UserSessionService } from '../user-session.service';
 
 @Component({
   selector: 'app-jokes-list',
@@ -17,7 +18,7 @@ export class JokesListComponent implements OnInit {
   likes_count :number =0;
   dislikes_count:number =0;
 
-  constructor (private jokesService :JokesService){}
+  constructor (private jokesService :JokesService, private userSession:UserSessionService ){}
 
   ngOnInit(): void {
     
@@ -33,14 +34,16 @@ export class JokesListComponent implements OnInit {
   }
 
   likes(joke:Joke): void{
-    joke.likes += 1
-    
-
+    if (this.userSession.likeJoke(joke.id)){
+      joke.likes += 1
+    }
   }
-  disLikes(joke:Joke): void{
-  
-    joke.dislikes +=1
 
+  disLikes(joke:Joke): void{
+    if (this.userSession.dislikeJoke(joke.id)){
+      joke.dislikes += 1
+
+    }
   }
 
 
