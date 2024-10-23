@@ -1,3 +1,12 @@
 form{
-    display: inline-block;
+    display: grid;
+    /* background-color: black; */
+    width:50%;
+    align-content: center;
+}
+button{
+    width:40%;
+    margin-left: auto;
+    margin-right: auto;
+    
 }

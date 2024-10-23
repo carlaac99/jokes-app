@@ -1,7 +1,12 @@
 <h1>Comments</h1>
 
-<form (ngSubmit)="submitComment()">
-    <p>Add a comment:</p>
-    <textarea placeholder="enter comment here"></textarea>
-    <button type="submit" >Submit Comment</button>
+<form [formGroup]="commentsForm" (ngSubmit)="submitComment()">
+    
+    <label for="username">UserName:</label>
+    <input type="text" id="username" formControlName="userName">
+    <label>Add a comment:</label>
+    <textarea placeholder="enter comment here" rows="6" formControlName="comment"></textarea>
+    <button type="submit">Submit Comment</button>
+    <button type="button" (click)="onClose()">Close</button>
 </form>
+

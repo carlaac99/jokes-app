@@ -44,10 +44,55 @@ export class UserSessionService {
 
     sessionStorage.setItem('dislikedJokes', JSON.stringify(dislikedJoke))
     console.log("true")
-    return true;
-
+    return true; 
   }
 
- 
+  getJokeLike(jokeId:number): boolean {
+    let likedJokes: number [] = JSON.parse(sessionStorage.getItem('likedJokes') || '[]')
+    
+    if (likedJokes.includes(jokeId) ){
+      return true;
 
+    } else {
+      return false;
+    }
+
+ }
+
+ getJokeDislike(jokeId:number): boolean {
+
+  let dislikedJokes: number [] = JSON.parse(sessionStorage.getItem('dislikedJokes') || '[]');
+
+  if (dislikedJokes.includes(jokeId) ){
+    return true;
+
+  } else {
+    return false;
+  }
+
+ }
+
+
+ addComment(jokeId:number, userName:string, comment:string) {
+
+  let comments: string [][] = JSON.parse(sessionStorage.getItem('comments') || '[]')
+  let AddComment: string[] = [];
+  AddComment.push(JSON.stringify(jokeId),userName,comment)
+  comments.push(AddComment)
+  sessionStorage.setItem('comments', JSON.stringify(comments))
+ }
+
+ getComments(jokeId:number): string [][] {
+  let Allcomments: string [][] = JSON.parse(sessionStorage.getItem('comments') || '[]')
+  let comments: string [][] =[]
+
+  Allcomments.forEach( comment => {
+    if (comment[0]== JSON.stringify(jokeId)){
+      comments.push(comment)
+    }
+
+  })
+   return comments
+
+ }
 }

@@ -4,5 +4,5 @@ import { CommentsComponent } from './comments/comments.component';
 
 export const routes: Routes = [
     {path:'', component:JokesListComponent},
-    {path:'comments', component:CommentsComponent}
+    {path:'comments/:id', component:CommentsComponent}
 ];

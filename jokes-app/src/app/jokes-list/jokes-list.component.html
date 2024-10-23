@@ -1,25 +1,33 @@
 <h1>Jokes</h1>
-<table>
+<table *ngFor="let joke of jokes">
     <tr>
         <th>Joke</th>
         <th>Category</th>
-        <th>Type</th>
-        <th>Language</th>
         <th>Actions</th>
         <th>Number of Likes</th>
         <th>Number of disLikes</th>
-        <th>Comments</th>
+
+        
       </tr>
-      <tr *ngFor="let joke of jokes">
+      <tr >
         <td>{{joke.joke}}</td>
         <td>{{joke.category}}</td>
-        <td>{{joke.type}}</td>
-        <td>{{joke.lang}}</td>
         <td><button (click)="likes(joke)">Like</button><button (click)="disLikes(joke)">DisLike</button></td>
         <td>{{joke.likes}}</td>
         <td>{{joke.dislikes}}</td>
 
-        <td><button [routerLink]="['/comments']">Comments</button></td>
+
+
+      </tr>
+      <tr>
+        <th>Comments</th>
+        <td><button (click)="openCommentsDialog(joke)">Add a comment</button></td>
+
+      </tr>
+      <tr *ngFor="let comment of joke.comments">
+        <td>Username: {{comment[1]}}</td>
+        <td>{{comment[2]}}</td>
+
       </tr>
 
 </table>

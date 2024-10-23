@@ -1,7 +1,13 @@
 th{
     background-color: rgb(123, 123, 212);
+    text-align: center;
 }
-th{text-align: center;}
+
 table{
     width: 80%;
+    margin:50px;
+    border-bottom: solid;
+    
 }
+td{margin-right: 10px;}
+h1{text-align: center;}
