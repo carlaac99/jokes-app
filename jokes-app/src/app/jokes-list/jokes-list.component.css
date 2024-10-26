@@ -3,11 +3,17 @@ th{
     text-align: center;
 }
 
-table{
-    width: 80%;
-    margin:50px;
-    border-bottom: solid;
+table {
+    width: 100vh;
+    margin-top:5vh;
+    background-color:rgb(209, 207, 207);
+    margin-left: 10vh;
     
 }
-td{margin-right: 10px;}
-h1{text-align: center;}
+td  {margin-right: 10px; text-align: center;
+
+}
+
+h1{
+    text-align: center;
+}

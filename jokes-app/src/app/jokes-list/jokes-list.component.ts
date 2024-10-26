@@ -82,12 +82,10 @@ export class JokesListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(data =>{
 
-      // joke.comments.push(data[1])
-
       this.userName= data[0]
 
       this.userSession.addComment(joke.id,this.userName,data[1])
-      joke.comments=this.userSession.getComments(joke.id)
+      joke.comments = this.userSession.getComments(joke.id)
       console.log("joke comments after adding:",joke.comments)
 
     })

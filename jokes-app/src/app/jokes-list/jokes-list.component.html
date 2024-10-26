@@ -1,32 +1,22 @@
 <h1>Jokes</h1>
 <table *ngFor="let joke of jokes">
-    <tr>
-        <th>Joke</th>
-        <th>Category</th>
-        <th>Actions</th>
-        <th>Number of Likes</th>
-        <th>Number of disLikes</th>
 
-        
-      </tr>
-      <tr >
-        <td>{{joke.joke}}</td>
-        <td>{{joke.category}}</td>
-        <td><button (click)="likes(joke)">Like</button><button (click)="disLikes(joke)">DisLike</button></td>
-        <td>{{joke.likes}}</td>
-        <td>{{joke.dislikes}}</td>
-
-
-
-      </tr>
       <tr>
-        <th>Comments</th>
-        <td><button (click)="openCommentsDialog(joke)">Add a comment</button></td>
-
+        <td><b>Joke: </b>{{joke.joke}}</td>
+        <td><b>Category: </b>{{joke.category}}</td>
+        <td><button (click)="likes(joke)">Like</button><button (click)="disLikes(joke)">DisLike</button></td>
+        <td><b>Likes: </b>{{joke.likes}}</td>
+        <td><b>Dislikes: </b>{{joke.dislikes}}</td>
       </tr>
+
+      <tr class="comments">
+        <th>Comments</th>
+        <th><button (click)="openCommentsDialog(joke)">Add a comment</button></th>
+      </tr>
+
       <tr *ngFor="let comment of joke.comments">
-        <td>Username: {{comment[1]}}</td>
-        <td>{{comment[2]}}</td>
+        <td><b>{{comment[1]}}: </b>{{comment[2]}}</td>
+   
 
       </tr>
 
