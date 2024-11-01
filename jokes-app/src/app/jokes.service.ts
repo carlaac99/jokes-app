@@ -7,16 +7,20 @@ import { Joke } from './joke';
   providedIn: 'root'
 })
 export class JokesService {
-  private node_url = 'http://localhost:4400/'
+  private jokes_url = 'http://localhost:4400/'
 
   constructor(private http: HttpClient) { }
 
-  getJokes(): Observable<Joke[]>{
+  getJokes(amount:number,uncensored:boolean): Observable<Joke[]>{
+    
 
-   return this.http.get<Joke[]>(this.node_url+"jokes");
+   return this.http.get<Joke[]>(`${this.jokes_url}jokes/${amount}/${uncensored}`);
   }
+
   setUserSession(userId:string){
     localStorage.setItem('userId',userId)
   }
+
+
 
 }

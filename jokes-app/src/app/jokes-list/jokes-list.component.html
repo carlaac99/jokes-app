@@ -1,4 +1,20 @@
 <h1>Jokes</h1>
+<div>
+  <h3>Settings</h3>
+
+  <form (ngSubmit)="customJoke()">
+  <label for="nsfw-jokes">Include nsfw/inappropriate jokes</label>
+  <input [(ngModel)]="uncensored" type="checkbox" id="nsfw-jokes" name="nsfw-jokes" value="no-nsfw"   ><br>
+
+
+  <label for="nsfw-jokes">How many jokes do you want?: </label>
+  <input [(ngModel)]="amount" type="input" id="amount_jokes" name="amount_jokes" ><br>
+  <button type="submit">Get these jokes</button>
+  </form>
+  
+  
+</div>
+
 <table *ngFor="let joke of jokes">
 
       <tr>
@@ -16,8 +32,6 @@
 
       <tr *ngFor="let comment of joke.comments">
         <td><b>{{comment[1]}}: </b>{{comment[2]}}</td>
-   
-
       </tr>
 
 </table>
